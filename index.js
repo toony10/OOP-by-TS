@@ -1,6 +1,6 @@
 "use strict";
 /*
-    - constractor
+    - properties and methods
 */
 class User {
     constructor(id, username, salary) {
@@ -11,12 +11,17 @@ class User {
             return `Hello ${this.username}, your Salary is ${this.salary}${salary < 6000 ? ', after bouns' : ''}`;
         };
     }
+    // Methods
+    writeMsg() {
+        return `Hello ${this.username} your salary is ${this.salary}`;
+    }
 }
 let useOne = new User(10, 'tona', 2000);
 let useTow = new User(11, 'LoL', 7000);
 console.log(useOne.username);
 console.log(useOne.salary);
-console.log(useOne.msg);
+console.log(useOne.msg());
+console.log(useOne.writeMsg());
 console.log('============================');
 console.log(useTow.username);
 console.log(useTow.salary);
