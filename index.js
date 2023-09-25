@@ -1,36 +1,27 @@
 "use strict";
 /*
-    - built in constructor
+    - static properties and methods
 */
 class User {
     constructor(id, username, salary) {
         this.id = id;
         this.username = username;
-        this.salary = salary < 6000 ? salary + 500 : salary;
-        this.msg = function () {
-            return `Hello ${this.username}, your Salary is ${this.salary}${salary < 6000 ? ', after bouns' : ''}`;
-        };
+        this.salary = salary;
+        User.count++;
     }
-    // Methods
-    updateName(newName) {
-        this.username = newName;
+    static sayHello() {
+        return 'Hello Form Class';
+    }
+    static countMembers() {
+        return `${this.count} members Created`;
     }
 }
+User.count = 0;
 let useOne = new User(10, 'tona', 2000);
 let useTow = new User(11, 'LoL', 7000);
-// console.log(useOne.username);
-// console.log(useOne.salary);
-// console.log(useOne.msg());
-// useOne.updateName('anton')
-// console.log(useOne.username);
-console.log('============================');
-let strOne = 'Tona';
-let strTwo = new String('anton');
-console.log(typeof strOne); // String
-console.log(typeof strTwo); // Object
-console.log('#####################');
-console.log(strOne instanceof String); // False
-console.log(strTwo instanceof String); // True
-console.log('#####################');
-console.log(strOne.constructor === String); // True
-console.log(strTwo.constructor === String); // True
+let useThere = new User(12, 'KOK', 6000);
+// console.log(useOne.count); // undefined
+// console.log(User.count);
+// console.log(useOne.sayHello); // undefined
+// console.log(User.sayHello);
+console.log(User.countMembers()); // 3

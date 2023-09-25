@@ -1,5 +1,5 @@
 /*
-    - built in constructor
+    - static properties and methods
 */
 
 class User
@@ -8,40 +8,31 @@ class User
     id: number;
     username: string;
     salary: number;
-    msg: () => string;
+    static count = 0;
     constructor(id: number, username: string, salary: number)
     {
         this.id = id;
         this.username = username;
-        this.salary = salary < 6000 ? salary + 500 : salary;
-        this.msg = function()
-        {
-            return `Hello ${this.username}, your Salary is ${this.salary}${salary < 6000 ? ', after bouns' : ''}`
-        };
+        this.salary = salary;
+        User.count++;
     }
-    // Methods
-    updateName (newName: string)
+    static sayHello ()
     {
-        this.username = newName;
+        return 'Hello Form Class'
+    }
+    static countMembers ()
+    {
+        return `${this.count} members Created`
     }
 }
 let useOne = new User(10, 'tona', 2000)
 let useTow = new User(11, 'LoL', 7000)
-// console.log(useOne.username);
-// console.log(useOne.salary);
-// console.log(useOne.msg());
-// useOne.updateName('anton')
-// console.log(useOne.username);
+let useThere = new User(12, 'KOK', 6000)
 
-console.log('============================')
+// console.log(useOne.count); // undefined
+// console.log(User.count);
 
-let strOne = 'Tona';
-let strTwo = new String('anton');
-console.log(typeof strOne) // String
-console.log(typeof strTwo) // Object
-console.log('#####################')
-console.log(strOne instanceof String) // False
-console.log(strTwo instanceof String) // True
-console.log('#####################')
-console.log(strOne.constructor === String) // True
-console.log(strTwo.constructor === String) // True
+// console.log(useOne.sayHello); // undefined
+// console.log(User.sayHello);
+
+console.log(User.countMembers()); // 3
