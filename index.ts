@@ -1,5 +1,5 @@
 /*
-    - properties and methods
+    - update properties
 */
 
 class User
@@ -20,9 +20,9 @@ class User
         };
     }
     // Methods
-    writeMsg ()
+    updateName (newName: string)
     {
-        return `Hello ${this.username} your salary is ${this.salary}`
+        this.username = newName;
     }
 }
 let useOne = new User(10, 'tona', 2000)
@@ -30,7 +30,9 @@ let useTow = new User(11, 'LoL', 7000)
 console.log(useOne.username);
 console.log(useOne.salary);
 console.log(useOne.msg());
-console.log(useOne.writeMsg());
+useOne.updateName('anton')
+console.log(useOne.username);
+
 
 console.log('============================')
 
